@@ -1,6 +1,13 @@
 const express = require('express')
 const { Pool } = require('pg')
 
+require('fs').existsSync('.env') && require('fs').readFileSync('.env', 'utf8')
+  .split('\n')
+  .forEach(line => {
+    const [key, ...val] = line.split('=')
+    if (key && val.length) process.env[key.trim()] = val.join('=').trim()
+  })
+
 const app = express()
 const PORT = process.env.PORT || 3000
 
