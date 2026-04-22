@@ -66,7 +66,7 @@ app.get('/orders', async (req, res) => {
 
 // Health check
 app.get('/health', (req, res) => {
-  res.json({ status: 'ok' })
+  res.json({ status: 'Funcionando.!!!' })
 })
 
 app.listen(PORT, () => {
